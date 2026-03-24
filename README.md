@@ -1,1 +1,4 @@
 # remoteTekenen
+
+Wireframe: https://stitch.withgoogle.com/projects/11070437084317424950?pli=1
+Trello: https://trello.com/b/KdsNpiit/tekenen
