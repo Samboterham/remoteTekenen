@@ -1,0 +1,24 @@
+{
+  "name": "remotetekenen",
+  "version": "1.0.0",
+  "description": "Wireframe: https://stitch.withgoogle.com/projects/11070437084317424950\r Trello: https://trello.com/b/KdsNpiit/tekenen",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Samboterham/remoteTekenen.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Samboterham/remoteTekenen/issues"
+  },
+  "homepage": "https://github.com/Samboterham/remoteTekenen#readme",
+  "dependencies": {
+    "express": "^5.2.1",
+    "socket.io": "^4.8.3"
+  }
+}

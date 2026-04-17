@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atelier Canvas Viewer</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+
+    <!-- Connection Modal Overlay -->
+    <div id="joinModal" class="viewer-ui">
+        <div class="glass-modal">
+            <h1>Connect Phone</h1>
+            <p>Scan the code below with your phone to use it as a remote drawing tablet.</p>
+            <div class="qr-container">
+                <div id="qrcode"></div>
+            </div>
+            <p style="margin-bottom: 8px;">OR ENTER CODE</p>
+            <div id="roomCodeDisplay" class="room-id-display">------</div>
+        </div>
+    </div>
+
+    <!-- Grid Background & Main Drawing Canvas -->
+    <div class="canvas-wrapper"></div>
+    <canvas id="viewerCanvas"></canvas>
+
+    <!-- UI: Top Nav -->
+    <header class="desktop-top-nav">
+        <div class="nav-links">
+            <h1>Atelier Canvas</h1>
+            <nav>
+                <a href="#">File</a>
+                <a href="#">Edit</a>
+                <a href="#" class="active">Canvas</a>
+                <a href="#">View</a>
+                <a href="#">Window</a>
+            </nav>
+        </div>
+        <div class="nav-status">
+            <div class="device-status">Connected: Mobile</div>
+            <ion-icon name="cloud-upload-outline" style="font-size: 18px;"></ion-icon>
+            <ion-icon name="expand-outline" style="font-size: 18px;"></ion-icon>
+            <ion-icon name="settings-outline" style="font-size: 18px;"></ion-icon>
+        </div>
+    </header>
+
+    <!-- UI: Left Sidebar -->
+    <aside class="desktop-sidebar">
+        <div class="sidebar-label">WORKSPACE</div>
+        <button class="btn-icon active"><ion-icon name="cube-outline"></ion-icon></button>
+        <button class="btn-icon"><ion-icon name="time-outline"></ion-icon></button>
+        <button class="btn-icon"><ion-icon name="grid-outline"></ion-icon></button>
+        <button class="btn-icon"><ion-icon name="trash-outline"></ion-icon></button>
+        <div style="flex-grow:1;"></div>
+        <button class="btn-icon" style="margin-bottom: 24px;"><ion-icon name="share-outline"></ion-icon></button>
+    </aside>
+
+    <!-- UI: Right Layers Panel -->
+    <div class="panel layers-panel">
+        <div class="layers-header">
+            Layers <ion-icon name="add"></ion-icon>
+        </div>
+        <div class="layer-item active">
+            <div style="display:flex; align-items:center;">
+                <div class="layer-thumb" style="background:#222; border-radius:6px;"></div>
+                Stroke Layer 1
+            </div>
+            <ion-icon name="eye-outline"></ion-icon>
+        </div>
+        <div class="layer-item">
+            <div style="display:flex; align-items:center;">
+                <div class="layer-thumb" style="background:#eee;"></div>
+                Background
+            </div>
+            <ion-icon name="eye-outline"></ion-icon>
+        </div>
+    </div>
+
+    <!-- UI: Right Zoom & History Panel -->
+    <div class="panel zoom-panel">
+        <ion-icon name="search-outline"></ion-icon>
+        <span style="font-weight:600; font-size:12px;">124%</span>
+        <ion-icon name="search-outline"></ion-icon>
+        <div style="width:1px; height:16px; background:#ddd; margin: 0 4px;"></div>
+        <ion-icon name="arrow-undo-outline"></ion-icon>
+        <ion-icon name="arrow-redo-outline"></ion-icon>
+    </div>
+
+    <!-- UI: Bottom Info -->
+    <div class="bottom-info">
+        <span>4K CANVAS - 300 DPI</span><br>
+        UNTITLED-1.ART
+    </div>
+
+    <!-- UI: Bottom Center Tools -->
+    <div class="panel desktop-bottom-toolbar">
+        <div style="display:flex; gap: 8px;">
+            <div class="color-dot color-black active"></div>
+            <div class="color-dot color-grey"></div>
+            <div class="color-dot color-darkgrey"></div>
+            <div class="color-dot color-red"></div>
+        </div>
+        
+        <div style="width:1px; height:24px; background:#ddd;"></div>
+        
+        <div class="sliders">
+            <div class="slider">SIZE 
+                <div class="slider-track"><div class="slider-fill" style="width:20%"></div></div> 12px
+            </div>
+            <div class="slider">OPACITY 
+                <div class="slider-track"><div class="slider-fill" style="width:80%"></div></div> 80%
+            </div>
+        </div>
+
+        <button class="btn-icon active" style="background:var(--text-dark); color:white; border-radius:12px; height:32px; width:32px;">
+            <ion-icon name="brush"></ion-icon>
+        </button>
+    </div>
+
+    <!-- UI: Bottom Right Toast -->
+    <div class="toast">
+        <ion-icon name="color-wand" style="font-size:20px;"></ion-icon>
+        <div>
+            <strong>REMOTE INPUT ACTIVE</strong><br>
+            <span style="color:#aaa; font-weight:400;">iPhone pressure sensitivity enabled</span>
+        </div>
+    </div>
+
+    <script src="viewer.js"></script>
+</body>
+</html>

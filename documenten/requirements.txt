@@ -1,0 +1,37 @@
+Remote 
+Drawing
+ App – Projectplan
+Doel
+Een webapplicatie waarmee ik via mijn telefoon kan tekenen en dat real-time zichtbaar is op een laptopscherm.
+De app biedt tekenfunctionaliteit met kleurkeuze, gum, ongedaan maken (
+undo
+/
+redo
+) en alles wissen.
+Functionaliteiten
+Tekenen op telefoon, zichtbaar op laptop
+Kleuren kiezen
+Gummen
+Ongedaan maken (terug / vooruit)
+Alles in één keer verwijderen
+Technologieën
+Node/
+WebSockets
+ 
+ – voor backend (bijv. sessiebeheer, eventueel opslaan van canvasdata)
+JavaScript
+ – voor 
+frontend
+ interactie, tekenfunctionaliteit, real-time communicatie
+CSS
+ – voor opmaak en 
+responsive
+ design
+HTML5 Canvas
+ – voor het tekengebied
+Optionele uitbreidingen
+Database (bijv. 
+MySQL
+) om tekeningen op te slaan
+Authenticatie om verbindingen te beveiligen
+QR-code om laptop-sessie eenvoudig te koppelen met telefoon

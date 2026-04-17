@@ -1,0 +1,16 @@
+{
+    "name": "Atelier Canvas Remote",
+    "short_name": "Atelier",
+    "description": "Remote drawing tablet app",
+    "start_url": "./draw.html",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#ffffff",
+    "icons": [
+      {
+        "src": "icon.png",
+        "sizes": "512x512",
+        "type": "image/png"
+      }
+    ]
+  }

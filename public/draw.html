@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Atelier">
+    <link rel="apple-touch-icon" href="icon.png">
+    <link rel="manifest" href="manifest.json">
+    <title>Atelier Remote Drawer</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+
+    <!-- Grid Background & Canvas -->
+    <div class="canvas-wrapper"></div>
+    <canvas id="drawerCanvas"></canvas>
+
+    <!-- Top Header -->
+    <header class="mobile-header">
+        <ion-icon name="menu-outline" style="font-size: 24px;"></ion-icon>
+        <h1>Atelier Remote</h1>
+        <ion-icon name="settings-sharp" style="font-size: 20px;"></ion-icon>
+    </header>
+
+    <!-- Left Floating Panel: Eraser & Clear -->
+    <div class="panel mobile-left-tools">
+        <button id="btnEraser" class="btn-icon" title="Eraser">
+            <ion-icon name="easel-outline" style="transform: rotate(45deg); font-weight:900;"></ion-icon>
+        </button>
+        <button id="btnClear" class="btn-icon" title="Clear">
+            <ion-icon name="trash"></ion-icon>
+        </button>
+    </div>
+
+    <!-- Right Floating Panel: Sizes & Text -->
+    <div class="panel mobile-right-tools">
+        <div class="dot-sizes">
+            <div class="dot small" data-size="2"></div>
+            <div class="dot medium active" data-size="6"></div>
+            <div class="dot large" data-size="12"></div>
+        </div>
+        <div style="width: 24px; height: 1px; background: #eee; margin: 4px 0;"></div>
+        <button class="btn-icon">
+            <ion-icon name="text-outline"></ion-icon>
+        </button>
+    </div>
+
+    <!-- Bottom Floating Panel: Colors -->
+    <div class="panel mobile-colors" id="colorPalette">
+        <div class="color-dot color-black active" data-color="#000000"></div>
+        <div class="color-dot color-red" data-color="#D32F2F"></div>
+        <div class="color-dot color-blue" data-color="#1976D2"></div>
+        <div class="color-dot color-green" data-color="#388E3C"></div>
+        <div class="color-dot color-grey" style="display:flex; justify-content:center; align-items:center; color:#888;">
+            <ion-icon name="add-outline"></ion-icon>
+        </div>
+    </div>
+
+    <!-- Absolute Bottom Fixed Navigation -->
+    <div class="mobile-bottom-nav">
+        <button id="btnPen" class="btn-icon active" style="width: 48px; height: 48px; border-radius: 12px;">
+            <ion-icon name="brush"></ion-icon>
+        </button>
+        <button class="btn-icon">
+            <ion-icon name="layers"></ion-icon>
+        </button>
+        <button id="btnUndo" class="btn-icon">
+            <ion-icon name="arrow-undo-outline"></ion-icon>
+        </button>
+        <button id="btnRedo" class="btn-icon">
+            <ion-icon name="arrow-redo-outline"></ion-icon>
+        </button>
+    </div>
+
+    <script src="drawer.js"></script>
+</body>
+</html>
